@@ -1,0 +1,26 @@
+pid=[]
+wt=[]
+taa=[]
+bt=[]
+n=int(input("Enter how many process you want to enter: "))
+for i in range(n):
+    pid.append(i)
+    bt.append(int(input(f"Enter the burst time for : {i} :")))
+class fcfs:
+    @staticmethod
+    def waiting():
+        wt.append(0)
+        for i in range(1,n):
+            wt.append(wt[i-1]+bt[i-1])
+    @staticmethod
+    def turna():
+        for i in range(n):
+            taa.append(wt[i]+bt[i])
+p1=fcfs()
+p1.waiting()
+p1.turna()
+print("the process \t burst time \t waiting time \t turn around time\n")
+for i in range(n):
+    print(pid[i],"\t\t",bt[i],"\t\t",wt[i],"\t\t",taa[i])
+
+
